@@ -10,7 +10,9 @@ await page.getByPlaceholder("Password").fill("secret_sauce")
 await page.waitForTimeout(1000);
 const loginBtn = page.getByRole("button", { name:'Login' });
 await loginBtn.click();
-await page.getByTestId('error')
+const errorMessage = page.getByTestId("error");
+await expect(errorMessage).toBeVisible();
+await expect(errorMessage).toContainText("Epic sadface: Sorry, this user has been locked out.")
 /*await page.waitForTimeout(1000);
 await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html")
 await expect(page.getByText('Products')).toBeVisible()
