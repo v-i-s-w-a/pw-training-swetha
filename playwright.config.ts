@@ -13,7 +13,6 @@ export default defineConfig({
 
   use: {
     baseURL: 'https://www.saucedemo.com/',
-    headless: false,
     screenshot: 'on',
     video: 'on',
     trace: 'on',

@@ -7,5 +7,4 @@ test("basic webtest", async({ page })=>{
     ) ;
     await page.getByPlaceholder('Username').fill('locked_out_user');
     await page.getByPlaceholder('Password').fill('secret_sauce');
-    await(3000);
 })

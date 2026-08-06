@@ -13,20 +13,4 @@ await loginBtn.click();
 const errorMessage = page.getByTestId("error");
 await expect(errorMessage).toBeVisible();
 await expect(errorMessage).toContainText("Epic sadface: Sorry, this user has been locked out.")
-/*await page.waitForTimeout(1000);
-await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html")
-await expect(page.getByText('Products')).toBeVisible()
-//await page.waitForTimeout(1000);
-const product = page.getByTestId('inventory_item').filter({hasText:'Sauce Labs Bike Light'});
-await product.getByRole('button',{name:'Add to cart'}).click();
-await page.waitForTimeout(1000);
-/*await page.getByText("Add to cart").click()
-await page.waitForTimeout(1000);
-await page.goto("https://www.saucedemo.com/cart.html")
-await page.waitForTimeout(1000)
-await page.getByRole("button", { name: "Checkout"}).click()
-await page.waitForTimeout(1000)
-await page.waitForURL("https://www.saucedemo.com/checkout-step-one.html");
-await expect(page).toHaveURL("https://www.saucedemo.com/checkout-step-one.html")*/
-
 })
