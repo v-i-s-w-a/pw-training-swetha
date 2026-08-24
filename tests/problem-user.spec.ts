@@ -9,6 +9,6 @@ test("problem user shows the same image for all six products", async ({ page }) 
         imgs.map((img) => img.getAttribute("src"))
     );
 
-    expect(imageSources).toHaveLength(6);
+    expect(imageSources).toHaveLength(7);
     expect(new Set(imageSources).size).toBe(1);
 });

@@ -40,9 +40,19 @@ export default defineConfig({
 
       dependencies: ['setup'],
 
+
       testIgnore: /problem-user\.spec\.ts/,
     },
-
+      {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'], storageState: '.auth/standard.json' },
+      dependencies: ['setup'],
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'], storageState: '.auth/standard.json' },
+      dependencies: ['setup'],
+    },
     {
       name: 'chromium-problem',
 
