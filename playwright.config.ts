@@ -13,18 +13,47 @@ export default defineConfig({
 
   use: {
     baseURL: 'https://www.saucedemo.com/',
+
     screenshot: 'on',
+
     video: 'on',
+
     trace: 'on',
-    testIdAttribute: 'data-test'
+
+    testIdAttribute: 'data-test',
   },
 
   projects: [
     {
+      name: 'setup',
+
+      testMatch: /auth\.setup\.ts/,
+    },
+
+    {
       name: 'chromium',
+
       use: {
         ...devices['Desktop Chrome'],
+        storageState: '.auth/standard.json',
       },
+
+      dependencies: ['setup'],
+
+      testIgnore: /problem-user\.spec\.ts/,
+    },
+
+    {
+      name: 'chromium-problem',
+
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: '.auth/problem.json',
+      },
+
+      dependencies: ['setup'],
+
+      testMatch: /problem-user\.spec\.ts/,
     },
   ],
 });
