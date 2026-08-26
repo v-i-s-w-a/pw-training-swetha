@@ -11,7 +11,8 @@ setup("authenticate standard user", async ({ page }) => {
     await expect(page).toHaveURL(/inventory/);
 
     await page.context().storageState({
-        path: ".auth/standard.json",
+        path: ".auth/user.json",
+        
     });
 });
 

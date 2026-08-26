@@ -35,25 +35,31 @@ export default defineConfig({
 
       use: {
         ...devices['Desktop Chrome'],
-        storageState: '.auth/standard.json',
+        storageState: '.auth/user.json',
       },
 
       dependencies: ['setup'],
+
 
       testIgnore: /problem-user\.spec\.ts/,
     },
-
-    {
-      name: 'chromium-problem',
-
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: '.auth/problem.json',
-      },
-
+      {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'], storageState: '.auth/user.json' },
       dependencies: ['setup'],
-
-      testMatch: /problem-user\.spec\.ts/,
+        testIgnore: /problem-user\.spec\.ts/,
     },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'], storageState: '.auth/user.json' },
+      dependencies: ['setup'],
+        testIgnore: /problem-user\.spec\.ts/,
+    },
+   {
+  name: 'chromium-problem',
+  use: { ...devices['Desktop Chrome'], storageState: '.auth/problem.json' },
+  dependencies: ['setup'],
+  testMatch: /problem-user\.spec\.ts/,
+}
   ],
 });
